@@ -1,0 +1,37 @@
+{
+  "device": {
+    "name": "pico-iot",
+    "wifi": {
+      "ssid": "YOUR_WIFI_SSID",
+      "password": "YOUR_WIFI_PASSWORD"
+    }
+  },
+  "interval_ms": 5000,
+  "sensors": [
+    {
+      "type": "dht",
+      "name": "ambient_dht",
+      "pin": 15,
+      "model": "DHT22"
+    }
+  ],
+  "protocols": {
+    "mqtt": {
+      "enabled": true,
+      "client_id": "pico-iot",
+      "host": "192.168.1.10",
+      "port": 1883,
+      "topic": "devices/pico-iot/telemetry",
+      "username": null,
+      "password": null,
+      "keepalive": 60
+    },
+    "http": {
+      "enabled": false,
+      "url": "http://192.168.1.20:8080/telemetry",
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  }
+}
